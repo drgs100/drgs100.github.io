@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Bender",
+    "shortname": "bender",
+    "accuracy": "5",
+    "power": "1",
+    "tn": "6",
+    "head": "2",
+    "torso": "3",
+    "legs": "3",
+    "bio": "Bender Bending Rodríguez (designated in-universe as Bending Unit 22, unit number 1,729, serial number 2716057). Described by Leela as an 'alcoholic, whore-mongering, chain-smoking gambler'."
+  },
+  {
+    "name": "Big O",
+    "shortname": "big_o",
+    "accuracy": "4",
+    "power": "2",
+    "tn": "6",
+    "head": "3",
+    "torso": "4",
+    "legs": "4",
+    "bio": "A very big robot."
+  },
+  {
+    "name": "Tachikomas",
+    "shortname": "tachikomas",
+    "accuracy": "4",
+    "power": "2",
+    "tn": "6",
+    "head": "2",
+    "torso": "4",
+    "legs": "3",
+    "bio": "The Tachikomas were the sentient 'think' tanks from the Ghost in the Shell: Stand Alone Complex anime series. Though they could be piloted as a type of ride-armor, the Tachikomas possessed artificial intelligence and could act on their own. Their childish voices and mannerisms posed a stark juxtaposition to the acts of war they commonly carried out. A sub plot of the series involves the tanks developing independent thought and judgment, bringing them closer to true sapient intelligence."
+  },
+  {
+    "name": "Doraemon",
+    "shortname": "doraemon",
+    "accuracy": "1",
+    "power": "1",
+    "tn": "6",
+    "head": "1",
+    "torso": "2",
+    "legs": "2",
+    "bio": "A robot sent from the future to help improve the lives of a man’s ancestors, Doraemon becomes the companion of Nobitakun, a boy who has become accustomed to nothing but misery. Doraemon uses his 'fourth-dimensional pocket' to produce gadgets, tools, and medicines from the future. Nobitakun often attempts to use these gadgets for an easy way out of his problems, but his efforts almost always ultimately backfire hilariously, landing him in greater trouble than before."
+  },
+  {
+    "name": "Tetsuwan Atomu",
+    "shortname": "tetsuwan_atomu",
+    "accuracy": "2",
+    "power": "2",
+    "tn": "5",
+    "head": "2",
+    "torso": "2",
+    "legs": "2",
+    "bio": "Apowerful android created by the head of the Ministry of Science, Doctor Tenma. Dr. Tenma created Astro to replace his son Tobio , who died in a car accident. Dr. Tenma built Astro in Tobio's memory and treated Astro as lovingly as if he was the real Tobio. However, Dr. Tenma soon realized that the little android could not fill the void of his lost son, especially given that Astro could not grow older or express human aesthetics. Tenma rejected Astro and sold him to a cruel circus owner, Hamegg."
+  }
+]
+
+ 

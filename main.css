@@ -1,0 +1,117 @@
+﻿/*
+http://www.color-hex.com/color-palette/4970 Robot color palette
+blue: #1e5d88
+white: #d5d5d5
+green: #55ad7a  #34935D
+darkblue: #334d5c
+black: #23292e
+orange: #FF3D00
+*/
+
+body {
+  background-color: #334d5c;
+  color: #d5d5d5;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#content {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+#shooter, 
+#target {
+  width: 50%;
+  float: left;
+}
+
+#showRobots {
+  padding-left: 0;
+}
+
+#showRobots li {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  width: 90%;
+  line-height: 150%;
+  list-style-type: none;
+}
+
+
+#showRobots li:hover {
+  background-color: #55ad7a;
+}
+
+#showRobots li.yourRobot {
+  background-color: #1e5d88;
+}
+
+#showRobots li.yourOpponent {
+  background-color: #FF3D00;
+}
+
+
+
+
+/* button */
+
+.btn {
+  background: #1e5d88;
+  background-image: -webkit-linear-gradient(top, #1e5d88, #1e5d88);
+  background-image: -moz-linear-gradient(top, #1e5d88, #1e5d88);
+  background-image: -ms-linear-gradient(top, #1e5d88, #1e5d88);
+  background-image: -o-linear-gradient(top, #1e5d88, #1e5d88);
+  background-image: linear-gradient(to bottom, #1e5d88, #1e5d88);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #d5d5d5;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #23292e 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+#restart-btn {
+  background: #55ad7a;
+  background-image: -webkit-linear-gradient(top, #55ad7a, #55ad7a);
+  background-image: -moz-linear-gradient(top, #55ad7a, #55ad7a);
+  background-image: -ms-linear-gradient(top, #55ad7a, #55ad7a);
+  background-image: -o-linear-gradient(top, #55ad7a, #55ad7a);
+  background-image: linear-gradient(to bottom, #55ad7a, #55ad7a);
+}
+
+#restart-btn:hover {
+  background: #34935D;
+  background-image: -webkit-linear-gradient(top, #34935D, #34935D);
+  background-image: -moz-linear-gradient(top, #34935D, #34935D);
+  background-image: -ms-linear-gradient(top, #34935D, #34935D);
+  background-image: -o-linear-gradient(top, #34935D, #34935D);
+  background-image: linear-gradient(to bottom, #34935D, #34935D);
+  text-decoration: none;
+}
+
+
+
+
+
+/* utilities */
+
+.hidden {
+  display: none;
+}
+
+.align-right {
+  float: right;
+}

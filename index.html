@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Robots 0.2.0</title>
+	<meta charset="utf-8" />
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  
+  <main id="content">
+
+    <div id="selectRobot">
+      <h1 id="selectYou">Select your robot</h1>
+      <h1 id="selectOpponent" class="hidden">Select your opponent</h1>
+      <p>Robots available</p>
+      <ul id="showRobots"></ul>
+      <button id="toCombat" class="btn">To combat</button>
+    </div>
+    
+    <div id="combat" class="hidden">
+    
+      <div id="shooter">
+        <h1>Shooter: <span id="shootername"></span></h1>
+        <ul>
+          <li>Accuracy: <span id="accuracy"></span></li>
+          <li>Power:    <span id="power"></span></li>
+        </ul>
+        <div id="fireControl"></div>
+      </div>
+      
+      <div id="target">
+        <h1>Target: <span id="targetname"></h1>
+        <ul>
+          <li>Target number: <span id="tn"></span></li>
+          <li>Head: <span id="head"></span></li>
+          <li>Torso: <span id="torso"></span></li>
+          <li>Legs: <span id="legs"></span></li>
+        </ul>
+        <div id="damageControl"></div>
+      </div>
+      
+      <button id="fire-btn" class="btn">Fire!</button>
+      
+      <button id="restart-btn" class="hidden">Restart</button>
+    
+    </div>
+  
+  </main>
+	
+  <script src="myscripts.js"></script>
+</body>
+</html>
