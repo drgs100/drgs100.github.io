@@ -53,6 +53,17 @@
     "torso": "2",
     "legs": "2",
     "bio": "Apowerful android created by the head of the Ministry of Science, Doctor Tenma. Dr. Tenma created Astro to replace his son Tobio , who died in a car accident. Dr. Tenma built Astro in Tobio's memory and treated Astro as lovingly as if he was the real Tobio. However, Dr. Tenma soon realized that the little android could not fill the void of his lost son, especially given that Astro could not grow older or express human aesthetics. Tenma rejected Astro and sold him to a cruel circus owner, Hamegg."
+  },
+    {
+    "name": "Maschinenmensch",
+    "shortname": "m aschinenmensch",
+    "accuracy": "2",
+    "power": "2",
+    "tn": "6",
+    "head": "2",
+    "torso": "3",
+    "legs": "3",
+    "bio": "The Maschinenmensch is a metallic automaton shaped like a woman.  Built by mechanical genius C.A. Rotwang for his own companionship. His plan was to make her up to look like a Hel, a woman who had spurned his advances, so that he could finally have her for himself."
   }
 ]
 
