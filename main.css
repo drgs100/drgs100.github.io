@@ -19,8 +19,19 @@ body {
   max-width: 1000px;
 }
 
-#shooter, 
-#target {
+#selectRobot,
+#playerOne, 
+#playerTwo {
+  border: 0.2em solid #23292e;
+  padding: 1em;
+}
+
+#playerTwo {
+  margin-top: 1em;
+}
+
+#shooter, #target,
+#p2-shooter,#p2-target {
   width: 50%;
   float: left;
 }
@@ -83,7 +94,7 @@ body {
   text-decoration: none;
 }
 
-#restart-btn {
+.restart-btn {
   background: #55ad7a;
   background-image: -webkit-linear-gradient(top, #55ad7a, #55ad7a);
   background-image: -moz-linear-gradient(top, #55ad7a, #55ad7a);
@@ -92,7 +103,7 @@ body {
   background-image: linear-gradient(to bottom, #55ad7a, #55ad7a);
 }
 
-#restart-btn:hover {
+.restart-btn:hover {
   background: #34935D;
   background-image: -webkit-linear-gradient(top, #34935D, #34935D);
   background-image: -moz-linear-gradient(top, #34935D, #34935D);

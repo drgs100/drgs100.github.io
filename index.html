@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <title>Robots 0.2.0---</title>
+  <title>Robots 0.2.0</title>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="main.css">
@@ -20,29 +20,64 @@
     
     <div id="combat" class="hidden">
     
-      <div id="shooter">
-        <h1>Shooter: <span id="shootername"></span></h1>
-        <ul>
-          <li>Accuracy: <span id="accuracy"></span></li>
-          <li>Power:    <span id="power"></span></li>
-        </ul>
-        <div id="fireControl"></div>
-      </div>
+      <div id="playerOne">
+    
+        <div id="shooter">
+          <h1>Player One: <span id="shootername"></span></h1>
+          <ul>
+            <li>Accuracy: <span id="accuracy"></span></li>
+            <li>Power:    <span id="power"></span></li>
+          </ul>
+          <div id="fireControl"></div>
+        </div>
+        
+        <div id="target">
+          <h1>Target: <span id="targetname"></span></h1>
+          <ul>
+            <li>Target number: <span id="tn"></span></li>
+            <li>Head: <span id="head"></span></li>
+            <li>Torso: <span id="torso"></span></li>
+            <li>Legs: <span id="legs"></span></li>
+          </ul>
+          <div id="damageControl"></div>
+        </div>
+        
+        <button id="fire-btn" class="btn">Fire!</button>
+        <button onclick="location.reload();" id="p1-restart" class="hidden">Restart</button>
+        
+      </div> <!-- /playerOne -->
       
-      <div id="target">
-        <h1>Target: <span id="targetname"></h1>
-        <ul>
-          <li>Target number: <span id="tn"></span></li>
-          <li>Head: <span id="head"></span></li>
-          <li>Torso: <span id="torso"></span></li>
-          <li>Legs: <span id="legs"></span></li>
-        </ul>
-        <div id="damageControl"></div>
-      </div>
+      <div id="playerTwo">
+        
+        <div id="p2-shooter">
+          <h1>Player Two: <span id="p2-shootername"></span></h1>
+          <ul>
+            <li>Accuracy: <span id="p2-accuracy"></span></li>
+            <li>Power:    <span id="p2-power"></span></li>
+          </ul>
+          <div id="p2-fireControl"></div>
+        </div>
+        
+        <div id="p2-target">
+          <h1>Target: <span id="p2-targetname"></span></h1>
+          <ul>
+            <li>Target number: <span id="p2-tn"></span></li>
+            <li>Head: <span id="p2-head"></span></li>
+            <li>Torso: <span id="p2-torso"></span></li>
+            <li>Legs: <span id="p2-legs"></span></li>
+          </ul>
+          <div id="p2-damageControl"></div>
+        </div>
+        
+        <button id="p2-fire-btn" class="btn">Fire!</button>
+        <button onclick="location.reload();" id="p2-restart" class="hidden">Restart</button>
+        
+      </div><!-- /playerTwo -->
       
-      <button id="fire-btn" class="btn">Fire!</button>
       
-      <button id="restart-btn" class="hidden">Restart</button>
+        
+      
+      
     
     </div>
   

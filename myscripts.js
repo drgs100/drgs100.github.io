@@ -19,102 +19,94 @@
   } else {
     request = new ActiveXObject('Microsoft.XMLHTTP'); // IE version
   }
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  // *** turn request into a function and add the readystate and status. 
+  // *** if ((request.readyState === 4) && (request.status === 200)) { };
+  //////////////////////////////////////////////////////////////////////////////////////////////////
   
   
-  // restart button
-  var restart = $("#restart-btn");
-  function restartFunc () {
-    window.location.reload(true);
-  }
-  restart.onclick = restartFunc;
+  
+  
   
   
   // use array to collect the role of the two robots
   var robotsArr = [];
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // get robots
+
+
+
+
+
+
+  // get then show robots
   request.open('GET', 'robots.json');
   request.onreadystatechange = function() {
     if ((request.readyState === 4) && (request.status === 200)) {
       var items = JSON.parse(request.responseText);
-      
-      // show robots
-      var i;
       var robots;
-      for (i = 0; i < items.length; i++) {
+      for (var i = 0; i < items.length; i++) {
         robots = document.createElement('li');
         robots.id = items[i].shortname;
         robots.className = 'dynamic-link';
         robots.innerHTML = items[i].name;    
         robots.onclick = dynamicEvent;
-        $('#showRobots').appendChild(robots);
-        
+        $('#showRobots').appendChild(robots);      
       }
     }
-  }; // get robots
+  };
+  request.send();
   
-  // show robotes
+  // select robotes
   var c = 0;
   function dynamicEvent() {
+    // c used to count selections
     if (c === 0) {
       this.className += ' yourRobot';
       this.innerHTML += '<span class="align-right">your robot</span>';
       $("#selectYou").setAttribute("class", "hidden");
       $("#selectOpponent").className = "";
-      // populate our robots array for later use
+      // populate the robots array for later use
       robotsArr = [this.id]; 
       ++c;
       return c;
     } else if ((c === 1) && (this.className !== 'dynamic-link yourRobot')) {
       this.className += ' yourOpponent';
       this.innerHTML += '<span class="align-right">your opponent</span>';
-      // populate our robots array for later use
+      // add to the robots array for later use
       robotsArr.push(this.id);
       ++c;
       return c;
     }
-  } // show robots
- 
-  request.send();
+  } // dynamicEvent
  
   
-  // hide selectRobot and show combat
+ 
+  
+  // hide #selectRobot, populate and show #combat
   var toCombat = document.getElementById('toCombat');
   
-  
-  // global robot variables
+  // get global robot variables from webpage 
   var shootername = $('#shootername'),
       accuracy = $('#accuracy'),
       power = $('#power');
-        
   var targetname = $('#targetname'),
       tn = $('#tn'),
       head = $('#head'),
       torso = $('#torso'),
       legs = $('#legs'); 
+      
+  var p2_shootername = $('#p2-shootername'),
+      p2_accuracy = $('#p2-accuracy'),
+      p2_power = $('#p2-power');
+  var p2_targetname = $('#p2-targetname'),
+      p2_tn = $('#p2-tn'),
+      p2_head = $('#p2-head'),
+      p2_torso = $('#p2-torso'),
+      p2_legs = $('#p2-legs'); 
+      
+
 
   function showCombat (){
-    // also make sure both robots have been selected
+    // make sure both robots have been selected if not give warning, if so show next section
     if (c === 2) {
       $('#selectRobot').className = 'hidden';
       $('#combat').className = '';
@@ -123,107 +115,137 @@
       if (c === 1) { $('#selectOpponent').innerHTML += ' select both robots'; }
     }
 
-    // get combat values via robotArr
-    
+    // get robot from robotArr
     var yourRobot = robotsArr[0],
         opponentRobot = robotsArr[1];
-   
     var items = JSON.parse(request.responseText);
-    var i;
     
-    for (i = 0; i < items.length; i++) {
-      
-      // shooter
+    for (var i = 0; i < items.length; i++) {
+      // get shooter values
       if (items[i].shortname === yourRobot) {
         shootername.innerHTML += items[i].name;
         accuracy.innerHTML += items[i].accuracy;
-        power.innerHTML += items[i].power;        
+        power.innerHTML += items[i].power;
+        p2_targetname.innerHTML += items[i].name;
+        p2_tn.innerHTML += items[i].tn;
+        p2_head.innerHTML += items[i].head;
+        p2_torso.innerHTML += items[i].torso;
+        p2_legs.innerHTML += items[i].legs;        
       }
-      
-      // target
+      // get target values
       if (items[i].shortname === opponentRobot) {
         targetname.innerHTML += items[i].name;
         tn.innerHTML += items[i].tn;
         head.innerHTML += items[i].head;
         torso.innerHTML += items[i].torso;
         legs.innerHTML += items[i].legs;
-      }
-      
+        p2_shootername.innerHTML += items[i].name;
+        p2_accuracy.innerHTML += items[i].accuracy;
+        p2_power.innerHTML += items[i].power;
+      } 
     }
-   
   } // showCombat
-  
   toCombat.onclick = showCombat;
   
   
-  // conduct combat
-  
+  // conductCombat
   var fire = document.getElementById('fire-btn');
+  var fire_p2 = document.getElementById('p2-fire-btn'); 
   
-  function conductCombat (){
+  function conductCombat (p){
     
-    // does the shot hit?
     var rollToHit = d(6),
         shot = rollToHit + parseInt(accuracy.innerHTML);
     var fireControl = $('#fireControl');
+    var fireControl_2 = $('#p2-fireControl');
     
-    
-    // missfire
-    if (rollToHit === 1) {
-      fireControl.innerHTML = "Missfire"; 
-    } else {
-    // hit
-      if (shot >= tn.innerHTML ) {
-        fireControl.innerHTML = "HIT!";
-        hitLocation();
-    // miss
+    if (rollToHit === 1) { // missfire
+      if (p === "p1") { 
+        fireControl.innerHTML = "Missfire";
       } else {
-        fireControl.innerHTML = "Shot wide";
+        fireControl_2.innerHTML = "Missfire";
+      }
+    } else {
+      if (shot >= tn.innerHTML ) { // hit
+        if (p === "p1") {
+          fireControl.innerHTML = "HIT!";
+          hitLocation("p1");
+        } else {
+          fireControl_2.innerHTML = "HIT!";
+          hitLocation("p2");
+        }
+      } else { // miss
+        if (p === "p1"){
+          fireControl.innerHTML = "Shot wide";
+        } else {
+          fireControl_2.innerHTML = "Shot wide";
+        }
       }
     }  
     
-    
-    // what location?
-    function hitLocation(){
+    function hitLocation(p){
       var rollhitLocation = d(6);
       var damage = parseInt(power.innerHTML);
       
-      if (rollhitLocation === 1) {
-        // head
-        head.innerHTML -= damage;
-      } else if ((rollhitLocation >= 2) && (rollhitLocation <= 4)){
-        // torso
-        torso.innerHTML -= damage;
-      } else {
-        // legs
-        legs.innerHTML -= damage;
+      if (rollhitLocation === 1) { // head
+        if (p === "p1") { 
+          head.innerHTML -= damage;
+        } else {
+          p2_head.innerHTML -= damage;
+        }
+      } else if ((rollhitLocation >= 2) && (rollhitLocation <= 4)){ // torso
+        if (p === "p1") {
+          torso.innerHTML -= damage;
+        } else {
+          p2_torso.innerHTML -= damage;
+        }
+      } else { // legs
+        if (p === "p1") {
+          legs.innerHTML -= damage;  
+        } else {
+          p2_legs.innerHTML -= damage;
+        }
       }
-      damageControl();
-    } // hitLocation
-    
-    
-    // damageControl
-    function damageControl(){ 
       
+      if (p === "p1") {
+        damageControl("p1");  
+      } else {
+        damageControl("p2");
+      }
+      
+    } // hitLocation
+        
+    function damageControl(p){
       var head_dc = parseInt(head.innerHTML),
           torso_dc = parseInt(torso.innerHTML),
           legs_dc = parseInt(legs.innerHTML); 
-    
-      if ((head_dc <= 0 ) || (torso_dc <= 0) || (legs_dc <= 0)){
-        
-        // target destroyed
+      var p2_head_dc = parseInt(p2_head.innerHTML),
+          p2_torso_dc = parseInt(p2_torso.innerHTML),
+          p2_legs_dc = parseInt(p2_legs.innerHTML);
+          
+      if  ((head_dc <= 0 ) || (torso_dc <= 0) || (legs_dc <= 0) || (p2_head_dc <= 0 ) || (p2_torso_dc <= 0) || (p2_legs_dc <= 0)) {
+        // target destroyed 
         var targetDestroyed = document.createElement("p"); 
-        targetDestroyed.innerHTML = "<p>Target destroyed!</p>";
-        $('#target').appendChild(targetDestroyed);
-        
-        // remove fire btn and replace with restart
-        $('#fire-btn').className = "hidden";
-        $('#restart-btn').className = "btn";
+            targetDestroyed.innerHTML = "Target destroyed!";
+            
+        if (p === "p1") {  // player one
+          $('#target').appendChild(targetDestroyed);
+          // remove fire btn and replace with restart
+          $('#fire-btn').className = "hidden";
+          $('#p1-restart').className = "restart-btn btn"
+        } else { // player two
+          $('#p2-target').appendChild(targetDestroyed);
+          // remove fire btn and replace with restart
+          $('#p2-fire-btn').className = "hidden";
+          $('#p2-restart').className = "restart-btn btn"
+        }
       } 
     } // damageControl
   
   } // conductCombat 
-  
-  fire.onclick = conductCombat;
+
+  // event listeners passing the player parameter
+  fire.addEventListener('click', function () { conductCombat("p1"); }, false);
+  fire_p2.addEventListener('click', function () {conductCombat("p2"); }, false);
   
 })();
